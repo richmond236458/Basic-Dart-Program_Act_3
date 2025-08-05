@@ -1,4 +1,3 @@
-// Initialize localStorage with default user if not present
 if (!localStorage.getItem('users')) {
     localStorage.setItem('users', JSON.stringify([]));
 }
@@ -16,7 +15,7 @@ const registerPasswordInput = document.getElementById('register-password');
 const strengthBar = document.getElementById('strength-bar');
 const strengthText = document.getElementById('strength-text').querySelector('span');
 
-// Event listeners
+
 showRegister.addEventListener('click', showRegisterForm);
 showLogin.addEventListener('click', showLoginForm);
 logoutBtn.addEventListener('click', logout);
@@ -24,7 +23,7 @@ registerForm.addEventListener('submit', handleRegister);
 loginForm.addEventListener('submit', handleLogin);
 registerPasswordInput.addEventListener('input', handlePasswordStrength);
 
-// Helper functions
+
 
 function showRegisterForm(e) {
     e.preventDefault();
@@ -158,7 +157,7 @@ function resetMessages() {
     document.getElementById('login-success').style.display = 'none';
 }
 
-// Password strength meter functions
+
 function handlePasswordStrength() {
     const password = registerPasswordInput.value;
     const strength = getPasswordStrength(password);
@@ -169,13 +168,13 @@ function handlePasswordStrength() {
 function getPasswordStrength(password) {
     let strength = 0;
 
-    if (password.length >= 6) strength++;
+    if (password.length >= 5) strength++;
     if (password.match(/[A-Z]/)) strength++;
     if (password.match(/[a-z]/)) strength++;
     if (password.match(/[0-9]/)) strength++;
     if (password.match(/[^A-Za-z0-9]/)) strength++;
 
-    if (password.length >= 12 && strength >= 4) {
+    if (password.length >= 7 && strength >= 4) {
         return "strong";
     } else if (strength >= 3) {
         return "medium";
@@ -185,21 +184,21 @@ function getPasswordStrength(password) {
 }
 
 function updateStrengthMeter(strength) {
-    let width = "0%";
-    let color = "var(--danger)";
+    let width = "50%";
+    let color = "#ff0707ff";
     let text = "Too weak";
 
     if (strength === "weak") {
-        width = "33%";
-        color = "var(--danger)";
+        width = "50%";
+        color = "#ffd207ff";
         text = "Weak";
     } else if (strength === "medium") {
-        width = "66%";
-        color = "#ffc107"; // yellow
+        width = "50%";
+        color = "#ffc107"; 
         text = "Medium";
     } else if (strength === "strong") {
         width = "100%";
-        color = "var(--success)";
+        color = "#4dff07ff";
         text = "Strong";
     }
 
