@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Login System</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container fade-in">
+        <!-- Login Card -->
+        <div id="login-card" class="auth-card">
+            <div class="auth-header">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/00115760-0424-4d80-b432-e5d08905718d.png" alt="Login Illustration" />
+                <h1>Welcome Back</h1>
+                <p>Sign in to access your account</p>
+                <div id="login-error" class="error-message">Invalid email or password</div>
+                <div id="login-success" class="success-message">Registration successful! Please login</div>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" required />
+                    <div id="login-email-error" class="error-message">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" required minlength="6" />
+                    <div id="login-password-error" class="error-message">Password must be at least 6 characters</div>
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+            <div class="auth-footer">
+                Don't have an account? <a href="#" id="show-register">Register</a>
+            </div>
+        </div>
+
+        <!-- Register Card -->
+        <div id="register-card" class="auth-card" style="display: none;">
+            <div class="auth-header">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c228fa8-0abb-4cdc-a925-e01d8a1b41b3.png" alt="Register Illustration" />
+                <h1>Create Account</h1>
+                <p>Get started with your free account</p>
+                <div id="register-error" class="error-message">Email already registered</div>
+                <div id="register-success" class="success-message">Registration successful!</div>
+            </div>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" class="form-control" required />
+                    <div id="register-name-error" class="error-message">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" class="form-control" required />
+                    <div id="register-email-error" class="error-message">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" class="form-control" required minlength="6" />
+                    <div id="register-password-error" class="error-message">Password must be at least 6 characters</div>
+                    <div class="password-strength">
+                        <div id="strength-bar"></div>
+                        <p id="strength-text">Password strength: <span>Too weak</span></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" class="form-control" required />
+                    <div id="register-confirm-error" class="error-message">Passwords don't match</div>
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div class="auth-footer">
+                Already have an account? <a href="#" id="show-login">Sign In</a>
+            </div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-container" class="welcome-container" style="display: none;">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a6a977e-1608-4b14-9f0f-292310a2c671.png" alt="Welcome Illustration" />
+            <h1 id="welcome-message">Welcome, User!</h1>
+            <p>You have successfully logged in to your account.</p>
+            <button id="logout-btn" class="btn">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
